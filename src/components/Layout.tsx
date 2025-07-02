@@ -21,13 +21,13 @@ const Layout = ({ children }: LayoutProps) => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <nav className="bg-[#0071ce] shadow-lg">
+      <nav className="bg-teal-700 shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between h-16">
             <div className="flex items-center">
               <Link to="/" className="flex items-center space-x-3">
-                <div className="w-8 h-8 bg-[#ffc220] rounded-full flex items-center justify-center">
-                  <span className="text-[#0071ce] font-bold text-lg">W</span>
+                <div className="w-8 h-8 bg-teal-200 rounded-full flex items-center justify-center">
+                  <span className="text-teal-800 font-bold text-lg">W</span>
                 </div>
                 <span className="text-white font-bold text-xl">Supply Chain AI</span>
               </Link>
@@ -38,8 +38,8 @@ const Layout = ({ children }: LayoutProps) => {
                   key={item.path}
                   to={item.path}
                   className={cn(
-                    "text-white hover:text-[#ffc220] px-3 py-2 rounded-md text-sm font-medium transition-colors",
-                    location.pathname === item.path && "text-[#ffc220] bg-white/10"
+                    "text-white hover:text-teal-200 px-3 py-2 rounded-md text-sm font-medium transition-colors",
+                    location.pathname === item.path && "text-teal-200 bg-white/10"
                   )}
                 >
                   <span className="mr-2">{item.icon}</span>

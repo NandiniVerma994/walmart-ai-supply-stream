@@ -1,4 +1,3 @@
-
 import Layout from "@/components/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -96,7 +95,7 @@ const ReturnsRadar = () => {
                 </Select>
               </div>
 
-              <Button onClick={handlePrediction} className="w-full bg-[#0071ce] hover:bg-[#004c87]">
+              <Button onClick={handlePrediction} className="w-full bg-teal-700 hover:bg-teal-800">
                 Analyze Return Risk
               </Button>
             </CardContent>
@@ -176,7 +175,7 @@ const ReturnsRadar = () => {
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
               {returnPaths.map((path, index) => (
-                <Card key={index} className="border-l-4 border-l-blue-500">
+                <Card key={index} className="border-l-4 border-l-teal-600">
                   <CardContent className="pt-6">
                     <div className="text-center">
                       <div className="text-2xl font-bold text-gray-900 mb-1">{path.percentage}%</div>
@@ -194,21 +193,21 @@ const ReturnsRadar = () => {
         </Card>
 
         {/* Summary Section */}
-        <Card className="mt-8 bg-gradient-to-r from-blue-50 to-green-50">
+        <Card className="mt-8 bg-gradient-to-r from-teal-50 to-slate-50">
           <CardContent className="pt-6">
             <div className="text-center">
               <h3 className="text-xl font-semibold mb-4">How Returns Radar Works</h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
                 <div>
-                  <div className="text-blue-600 font-semibold mb-2">🎯 Predict</div>
+                  <div className="text-teal-600 font-semibold mb-2">🎯 Predict</div>
                   <p>AI analyzes customer behavior, product history, and seasonal patterns to predict return likelihood</p>
                 </div>
                 <div>
-                  <div className="text-green-600 font-semibold mb-2">🚚 Prepare</div>
+                  <div className="text-slate-600 font-semibold mb-2">🚚 Prepare</div>
                   <p>Pre-positions inventory and logistics resources based on predicted return volumes</p>
                 </div>
                 <div>
-                  <div className="text-purple-600 font-semibold mb-2">♻️ Process</div>
+                  <div className="text-gray-600 font-semibold mb-2">♻️ Process</div>
                   <p>Routes returns through optimized paths to maximize value recovery and minimize costs</p>
                 </div>
               </div>

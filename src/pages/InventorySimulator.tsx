@@ -1,4 +1,3 @@
-
 import Layout from "@/components/Layout";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -90,7 +89,7 @@ const InventorySimulator = () => {
                 <Input type="number" id="quantity" placeholder="Enter quantity" />
               </div>
 
-              <Button onClick={handleSimulation} className="w-full bg-[#0071ce] hover:bg-[#004c87]">
+              <Button onClick={handleSimulation} className="w-full bg-teal-700 hover:bg-teal-800">
                 Run Simulation
               </Button>
             </CardContent>
@@ -149,8 +148,8 @@ const InventorySimulator = () => {
                     <XAxis dataKey="month" />
                     <YAxis />
                     <Tooltip />
-                    <Line type="monotone" dataKey="sales" stroke="#0071ce" strokeWidth={2} />
-                    <Line type="monotone" dataKey="stock" stroke="#ffc220" strokeWidth={2} />
+                    <Line type="monotone" dataKey="sales" stroke="#0f766e" strokeWidth={2} />
+                    <Line type="monotone" dataKey="stock" stroke="#64748b" strokeWidth={2} />
                   </LineChart>
                 </ResponsiveContainer>
               </CardContent>

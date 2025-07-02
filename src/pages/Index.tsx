@@ -12,42 +12,42 @@ const Index = () => {
       description: "Test inventory decisions before they happen with AI-powered simulations",
       icon: "📦",
       path: "/inventory-simulator",
-      color: "bg-blue-500"
+      color: "bg-teal-600"
     },
     {
       title: "Returns Radar",
       description: "Predict returns and optimize reverse logistics pathways",
       icon: "🔁",
       path: "/returns-radar",
-      color: "bg-green-500"
+      color: "bg-slate-600"
     },
     {
       title: "Supplier Scoreboard",
       description: "Real-time supplier performance and risk assessment dashboard",
       icon: "🧮",
       path: "/supplier-score",
-      color: "bg-purple-500"
+      color: "bg-gray-700"
     },
     {
       title: "DemandDNA",
       description: "Predict micro-trends by analyzing social signals and search patterns",
       icon: "🔍",
       path: "/demand-dna",
-      color: "bg-orange-500"
+      color: "bg-teal-700"
     },
     {
       title: "SmartDropSync",
       description: "Optimize delivery dock scheduling to reduce wait times and congestion",
       icon: "🚚",
       path: "/smart-drop-sync",
-      color: "bg-indigo-500"
+      color: "bg-slate-700"
     },
     {
       title: "LoadSwap",
       description: "Smart parcel rebalancing between delivery vehicles for optimal efficiency",
       icon: "🔄",
       path: "/loadswap",
-      color: "bg-teal-500"
+      color: "bg-gray-600"
     }
   ];
 
@@ -55,20 +55,20 @@ const Index = () => {
     <Layout>
       <div className="relative overflow-hidden">
         {/* Hero Section */}
-        <div className="bg-gradient-to-br from-[#0071ce] to-[#004c87] text-white">
+        <div className="bg-gradient-to-br from-teal-700 to-slate-800 text-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
             <div className="text-center">
               <h1 className="text-5xl md:text-6xl font-bold mb-6">
                 Transforming Supply Chains
               </h1>
-              <p className="text-xl md:text-2xl mb-8 text-blue-100">
+              <p className="text-xl md:text-2xl mb-8 text-teal-100">
                 Innovating inventory, delivery, and returns with AI
               </p>
               <div className="inline-flex items-center space-x-4">
-                <div className="w-16 h-16 bg-[#ffc220] rounded-full flex items-center justify-center">
-                  <span className="text-[#0071ce] font-bold text-2xl">W</span>
+                <div className="w-16 h-16 bg-teal-200 rounded-full flex items-center justify-center">
+                  <span className="text-teal-800 font-bold text-2xl">W</span>
                 </div>
-                <span className="text-[#ffc220] font-semibold text-lg">Sparkathon 2024</span>
+                <span className="text-teal-200 font-semibold text-lg">Sparkathon 2024</span>
               </div>
             </div>
           </div>
@@ -97,7 +97,7 @@ const Index = () => {
                 </CardHeader>
                 <CardContent>
                   <Link to={module.path}>
-                    <Button className="w-full bg-[#0071ce] hover:bg-[#004c87] text-white group-hover:bg-[#ffc220] group-hover:text-[#0071ce] transition-colors">
+                    <Button className="w-full bg-teal-700 hover:bg-teal-800 text-white group-hover:bg-teal-600 transition-colors">
                       Explore Module
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
@@ -113,19 +113,19 @@ const Index = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
               <div>
-                <div className="text-4xl font-bold text-[#0071ce] mb-2">6</div>
+                <div className="text-4xl font-bold text-teal-700 mb-2">6</div>
                 <div className="text-gray-600">AI-Powered Modules</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-[#0071ce] mb-2">360°</div>
+                <div className="text-4xl font-bold text-teal-700 mb-2">360°</div>
                 <div className="text-gray-600">Supply Chain Coverage</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-[#0071ce] mb-2">Real-time</div>
+                <div className="text-4xl font-bold text-teal-700 mb-2">Real-time</div>
                 <div className="text-gray-600">Decision Making</div>
               </div>
               <div>
-                <div className="text-4xl font-bold text-[#0071ce] mb-2">Smart</div>
+                <div className="text-4xl font-bold text-teal-700 mb-2">Smart</div>
                 <div className="text-gray-600">Automation</div>
               </div>
             </div>
