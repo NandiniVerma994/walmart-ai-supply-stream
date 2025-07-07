@@ -1,144 +1,4 @@
-// import Layout from "@/components/Layout";
-// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-// import { Button } from "@/components/ui/button";
-// import { Link } from "react-router-dom";
-// import { ArrowRight } from "lucide-react";
-
-// const Index = () => {
-//   const modules = [
-//     {
-//       title: "Inventory Simulator",
-//       description: "Test inventory decisions before they happen with AI-powered simulations",
-//       icon: "📦",
-//       path: "/inventory-simulator",
-//       color: "bg-teal-600"
-//     },
-//     {
-//       title: "Returns Radar",
-//       description: "Predict returns and optimize reverse logistics pathways",
-//       icon: "🔁",
-//       path: "/returns-radar",
-//       color: "bg-slate-600"
-//     },
-//     {
-//       title: "Supplier Scoreboard",
-//       description: "Real-time supplier performance and risk assessment dashboard",
-//       icon: "🧮",
-//       path: "/supplier-score",
-//       color: "bg-gray-700"
-//     },
-//     {
-//       title: "DemandDNA",
-//       description: "Predict micro-trends by analyzing social signals and search patterns",
-//       icon: "🔍",
-//       path: "/demand-dna",
-//       color: "bg-teal-700"
-//     },
-//     {
-//       title: "SmartDropSync",
-//       description: "Optimize delivery dock scheduling to reduce wait times and congestion",
-//       icon: "🚚",
-//       path: "/smart-drop-sync",
-//       color: "bg-slate-700"
-//     },
-//     {
-//       title: "LoadSwap",
-//       description: "Smart parcel rebalancing between delivery vehicles for optimal efficiency",
-//       icon: "🔄",
-//       path: "/loadswap",
-//       color: "bg-gray-600"
-//     }
-//   ];
-
-//   return (
-//     <Layout>
-//       <div className="relative overflow-hidden">
-//         {/* Hero Section */}
-//         <div className="bg-gradient-to-br from-teal-700 to-slate-800 text-white">
-//           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-//             <div className="text-center">
-//               <h1 className="text-5xl md:text-6xl font-bold mb-6">
-//                 Transforming Supply Chains
-//               </h1>
-//               <p className="text-xl md:text-2xl mb-8 text-teal-100">
-//                 Innovating inventory, delivery, and returns with AI
-//               </p>
-//               <div className="inline-flex items-center space-x-4">
-//                 <div className="w-16 h-16 bg-teal-200 rounded-full flex items-center justify-center">
-//                   <span className="text-teal-800 font-bold text-2xl">W</span>
-//                 </div>
-//                 <span className="text-teal-200 font-semibold text-lg">Sparkathon 2024</span>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-
-//         {/* Modules Grid */}
-//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-//           <div className="text-center mb-12">
-//             <h2 className="text-3xl font-bold text-gray-900 mb-4">AI-Powered Supply Chain Solutions</h2>
-//             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-//               Explore our comprehensive suite of AI tools designed to revolutionize every aspect of Walmart's supply chain operations
-//             </p>
-//           </div>
-
-//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-//             {modules.map((module, index) => (
-//               <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg">
-//                 <CardHeader className="pb-4">
-//                   <div className={`w-12 h-12 ${module.color} rounded-lg flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform`}>
-//                     {module.icon}
-//                   </div>
-//                   <CardTitle className="text-xl font-semibold text-gray-900">{module.title}</CardTitle>
-//                   <CardDescription className="text-gray-600">
-//                     {module.description}
-//                   </CardDescription>
-//                 </CardHeader>
-//                 <CardContent>
-//                   <Link to={module.path}>
-//                     <Button className="w-full bg-teal-700 hover:bg-teal-800 text-white group-hover:bg-teal-600 transition-colors">
-//                       Explore Module
-//                       <ArrowRight className="ml-2 h-4 w-4" />
-//                     </Button>
-//                   </Link>
-//                 </CardContent>
-//               </Card>
-//             ))}
-//           </div>
-//         </div>
-
-//         {/* Stats Section */}
-//         <div className="bg-gray-100 py-16">
-//           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-//             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-//               <div>
-//                 <div className="text-4xl font-bold text-teal-700 mb-2">6</div>
-//                 <div className="text-gray-600">AI-Powered Modules</div>
-//               </div>
-//               <div>
-//                 <div className="text-4xl font-bold text-teal-700 mb-2">360°</div>
-//                 <div className="text-gray-600">Supply Chain Coverage</div>
-//               </div>
-//               <div>
-//                 <div className="text-4xl font-bold text-teal-700 mb-2">Real-time</div>
-//                 <div className="text-gray-600">Decision Making</div>
-//               </div>
-//               <div>
-//                 <div className="text-4xl font-bold text-teal-700 mb-2">Smart</div>
-//                 <div className="text-gray-600">Automation</div>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </Layout>
-//   );
-// };
-
-// export default Index;
-// //
-"use client";
-
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -147,6 +7,24 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
 import {
   Package,
   RotateCcw,
@@ -163,6 +41,268 @@ import {
 } from "lucide-react";
 
 export default function LandingPage() {
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [selectedRole, setSelectedRole] = useState("");
+
+  const scrollToFeatures = () => {
+    document.getElementById("features")?.scrollIntoView({
+      behavior: "smooth",
+    });
+  };
+
+  const roleAccess = {
+    supplier: [
+      {
+        name: "Supplier Scoreboard",
+        icon: BarChart3,
+        description: "Track your performance metrics",
+      },
+      {
+        name: "SmartDropSync",
+        icon: Truck,
+        description: "Optimize delivery coordination",
+      },
+      {
+        name: "Returns Intelligence",
+        icon: RotateCcw,
+        description: "Monitor return patterns",
+      },
+    ],
+    manager: [
+      {
+        name: "Inventory Simulator",
+        icon: Package,
+        description: "Simulate inventory scenarios",
+      },
+      {
+        name: "Returns Intelligence",
+        icon: RotateCcw,
+        description: "Monitor return patterns",
+      },
+      {
+        name: "ShopTrends",
+        icon: TrendingUp,
+        description: "Analyze demand patterns",
+      },
+      {
+        name: "Supplier Scoreboard",
+        icon: BarChart3,
+        description: "View supplier metrics (Read-only)",
+        readonly: true,
+      },
+    ],
+    dispatcher: [
+      {
+        name: "LoadSwap",
+        icon: Zap,
+        description: "Optimize load distribution",
+      },
+      {
+        name: "SmartDropSync",
+        icon: Truck,
+        description: "Coordinate delivery schedules",
+      },
+    ],
+  };
+
+  const LoginSignupDialog = () => (
+    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+      <DialogContent className="sm:max-w-md bg-gradient-to-br from-slate-900 via-teal-800 to-emerald-900 border-teal-600/30 text-white">
+        <DialogHeader>
+          <DialogTitle className="text-2xl font-bold text-center text-white">
+            Welcome to OptiChain
+          </DialogTitle>
+          <DialogDescription className="text-center text-teal-100">
+            Access your supply chain dashboard
+          </DialogDescription>
+        </DialogHeader>
+
+        <Tabs defaultValue="login" className="w-full">
+          <TabsList className="grid w-full grid-cols-2 bg-slate-800/50">
+            <TabsTrigger
+              value="login"
+              className="data-[state=active]:bg-teal-600 data-[state=active]:text-white"
+            >
+              Login
+            </TabsTrigger>
+            <TabsTrigger
+              value="signup"
+              className="data-[state=active]:bg-teal-600 data-[state=active]:text-white"
+            >
+              Sign Up
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="login" className="space-y-4 mt-6">
+            <div className="space-y-2">
+              <Label htmlFor="login-email" className="text-teal-100">
+                Email
+              </Label>
+              <Input
+                id="login-email"
+                type="email"
+                placeholder="Enter your email"
+                className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="login-password" className="text-teal-100">
+                Password
+              </Label>
+              <Input
+                id="login-password"
+                type="password"
+                placeholder="Enter your password"
+                className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="login-role" className="text-teal-100">
+                Role
+              </Label>
+              <Select onValueChange={setSelectedRole}>
+                <SelectTrigger className="bg-slate-800/50 border-teal-600/30 text-white">
+                  <SelectValue placeholder="Select your role" />
+                </SelectTrigger>
+                <SelectContent className="bg-slate-800 border-teal-600/30">
+                  <SelectItem
+                    value="supplier"
+                    className="text-white hover:bg-teal-600"
+                  >
+                    Supplier
+                  </SelectItem>
+                  <SelectItem
+                    value="manager"
+                    className="text-white hover:bg-teal-600"
+                  >
+                    Walmart Store Manager
+                  </SelectItem>
+                  <SelectItem
+                    value="dispatcher"
+                    className="text-white hover:bg-teal-600"
+                  >
+                    Delivery Dispatcher
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white">
+              Sign In
+            </Button>
+          </TabsContent>
+
+          <TabsContent value="signup" className="space-y-4 mt-6">
+            <div className="space-y-2">
+              <Label htmlFor="signup-name" className="text-teal-100">
+                Full Name
+              </Label>
+              <Input
+                id="signup-name"
+                placeholder="Enter your full name"
+                className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="signup-email" className="text-teal-100">
+                Email
+              </Label>
+              <Input
+                id="signup-email"
+                type="email"
+                placeholder="Enter your email"
+                className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="signup-password" className="text-teal-100">
+                Password
+              </Label>
+              <Input
+                id="signup-password"
+                type="password"
+                placeholder="Create a password"
+                className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="signup-role" className="text-teal-100">
+                Role
+              </Label>
+              <Select onValueChange={setSelectedRole}>
+                <SelectTrigger className="bg-slate-800/50 border-teal-600/30 text-white">
+                  <SelectValue placeholder="Select your role" />
+                </SelectTrigger>
+                <SelectContent className="bg-slate-800 border-teal-600/30">
+                  <SelectItem
+                    value="supplier"
+                    className="text-white hover:bg-teal-600"
+                  >
+                    Supplier
+                  </SelectItem>
+                  <SelectItem
+                    value="manager"
+                    className="text-white hover:bg-teal-600"
+                  >
+                    Walmart Store Manager
+                  </SelectItem>
+                  <SelectItem
+                    value="dispatcher"
+                    className="text-white hover:bg-teal-600"
+                  >
+                    Delivery Dispatcher
+                  </SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white">
+              Create Account
+            </Button>
+          </TabsContent>
+        </Tabs>
+
+        {/* Role-based Access Information */}
+        {selectedRole && (
+          <div className="mt-6 pt-6 border-t border-teal-600/30">
+            <h3 className="font-semibold text-teal-100 mb-3 text-center">
+              Your Dashboard Access:
+            </h3>
+            <div className="space-y-3 max-h-48 overflow-y-auto">
+              {roleAccess[selectedRole]?.map((access, index) => {
+                const IconComponent = access.icon;
+                return (
+                  <div
+                    key={index}
+                    className="flex items-start space-x-3 p-3 bg-slate-800/30 rounded-lg hover:bg-slate-800/50 transition-colors duration-300"
+                  >
+                    <IconComponent className="w-5 h-5 text-teal-400 mt-0.5 flex-shrink-0" />
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center space-x-2">
+                        <p className="font-medium text-white text-sm">
+                          {access.name}
+                        </p>
+                        {access.readonly && (
+                          <Badge
+                            variant="outline"
+                            className="text-xs border-teal-400 text-teal-400"
+                          >
+                            Read-only
+                          </Badge>
+                        )}
+                      </div>
+                      <p className="text-xs text-teal-200 mt-1">
+                        {access.description}
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        )}
+      </DialogContent>
+    </Dialog>
+  );
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-teal-800 to-emerald-900">
       {/* Navbar */}
@@ -207,6 +347,7 @@ export default function LandingPage() {
                 <Button
                   variant="outline"
                   className="border-teal-200 text-teal-100 hover:bg-teal-200 hover:text-teal-800 bg-transparent"
+                  onClick={() => setIsDialogOpen(true)}
                 >
                   Login / Signup
                 </Button>
@@ -235,6 +376,7 @@ export default function LandingPage() {
             <Button
               size="lg"
               className="bg-white text-teal-800 hover:bg-teal-50 px-8 py-4 text-lg font-semibold"
+              onClick={() => setIsDialogOpen(true)}
             >
               Login / Signup
             </Button>
@@ -242,6 +384,7 @@ export default function LandingPage() {
               size="lg"
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-teal-800 px-8 py-4 text-lg font-semibold bg-transparent"
+              onClick={scrollToFeatures}
             >
               Explore Features
             </Button>
@@ -577,6 +720,7 @@ export default function LandingPage() {
           <Button
             size="lg"
             className="bg-white text-teal-800 hover:bg-teal-50 px-8 py-4 text-lg font-semibold"
+            onClick={() => setIsDialogOpen(true)}
           >
             Get Started
             <ArrowRight className="w-5 h-5 ml-2" />
@@ -597,6 +741,9 @@ export default function LandingPage() {
           </div>
         </div>
       </footer>
+
+      {/* Login/Signup Dialog */}
+      <LoginSignupDialog />
     </div>
   );
 }
