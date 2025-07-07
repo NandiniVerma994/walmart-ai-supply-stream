@@ -1,139 +1,602 @@
+// import Layout from "@/components/Layout";
+// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+// import { Button } from "@/components/ui/button";
+// import { Link } from "react-router-dom";
+// import { ArrowRight } from "lucide-react";
 
-import Layout from "@/components/Layout";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+// const Index = () => {
+//   const modules = [
+//     {
+//       title: "Inventory Simulator",
+//       description: "Test inventory decisions before they happen with AI-powered simulations",
+//       icon: "📦",
+//       path: "/inventory-simulator",
+//       color: "bg-teal-600"
+//     },
+//     {
+//       title: "Returns Radar",
+//       description: "Predict returns and optimize reverse logistics pathways",
+//       icon: "🔁",
+//       path: "/returns-radar",
+//       color: "bg-slate-600"
+//     },
+//     {
+//       title: "Supplier Scoreboard",
+//       description: "Real-time supplier performance and risk assessment dashboard",
+//       icon: "🧮",
+//       path: "/supplier-score",
+//       color: "bg-gray-700"
+//     },
+//     {
+//       title: "DemandDNA",
+//       description: "Predict micro-trends by analyzing social signals and search patterns",
+//       icon: "🔍",
+//       path: "/demand-dna",
+//       color: "bg-teal-700"
+//     },
+//     {
+//       title: "SmartDropSync",
+//       description: "Optimize delivery dock scheduling to reduce wait times and congestion",
+//       icon: "🚚",
+//       path: "/smart-drop-sync",
+//       color: "bg-slate-700"
+//     },
+//     {
+//       title: "LoadSwap",
+//       description: "Smart parcel rebalancing between delivery vehicles for optimal efficiency",
+//       icon: "🔄",
+//       path: "/loadswap",
+//       color: "bg-gray-600"
+//     }
+//   ];
+
+//   return (
+//     <Layout>
+//       <div className="relative overflow-hidden">
+//         {/* Hero Section */}
+//         <div className="bg-gradient-to-br from-teal-700 to-slate-800 text-white">
+//           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+//             <div className="text-center">
+//               <h1 className="text-5xl md:text-6xl font-bold mb-6">
+//                 Transforming Supply Chains
+//               </h1>
+//               <p className="text-xl md:text-2xl mb-8 text-teal-100">
+//                 Innovating inventory, delivery, and returns with AI
+//               </p>
+//               <div className="inline-flex items-center space-x-4">
+//                 <div className="w-16 h-16 bg-teal-200 rounded-full flex items-center justify-center">
+//                   <span className="text-teal-800 font-bold text-2xl">W</span>
+//                 </div>
+//                 <span className="text-teal-200 font-semibold text-lg">Sparkathon 2024</span>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Modules Grid */}
+//         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+//           <div className="text-center mb-12">
+//             <h2 className="text-3xl font-bold text-gray-900 mb-4">AI-Powered Supply Chain Solutions</h2>
+//             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+//               Explore our comprehensive suite of AI tools designed to revolutionize every aspect of Walmart's supply chain operations
+//             </p>
+//           </div>
+
+//           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+//             {modules.map((module, index) => (
+//               <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg">
+//                 <CardHeader className="pb-4">
+//                   <div className={`w-12 h-12 ${module.color} rounded-lg flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform`}>
+//                     {module.icon}
+//                   </div>
+//                   <CardTitle className="text-xl font-semibold text-gray-900">{module.title}</CardTitle>
+//                   <CardDescription className="text-gray-600">
+//                     {module.description}
+//                   </CardDescription>
+//                 </CardHeader>
+//                 <CardContent>
+//                   <Link to={module.path}>
+//                     <Button className="w-full bg-teal-700 hover:bg-teal-800 text-white group-hover:bg-teal-600 transition-colors">
+//                       Explore Module
+//                       <ArrowRight className="ml-2 h-4 w-4" />
+//                     </Button>
+//                   </Link>
+//                 </CardContent>
+//               </Card>
+//             ))}
+//           </div>
+//         </div>
+
+//         {/* Stats Section */}
+//         <div className="bg-gray-100 py-16">
+//           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+//             <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+//               <div>
+//                 <div className="text-4xl font-bold text-teal-700 mb-2">6</div>
+//                 <div className="text-gray-600">AI-Powered Modules</div>
+//               </div>
+//               <div>
+//                 <div className="text-4xl font-bold text-teal-700 mb-2">360°</div>
+//                 <div className="text-gray-600">Supply Chain Coverage</div>
+//               </div>
+//               <div>
+//                 <div className="text-4xl font-bold text-teal-700 mb-2">Real-time</div>
+//                 <div className="text-gray-600">Decision Making</div>
+//               </div>
+//               <div>
+//                 <div className="text-4xl font-bold text-teal-700 mb-2">Smart</div>
+//                 <div className="text-gray-600">Automation</div>
+//               </div>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+//     </Layout>
+//   );
+// };
+
+// export default Index;
+// //
+"use client";
+
 import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Package,
+  RotateCcw,
+  BarChart3,
+  TrendingUp,
+  Truck,
+  Zap,
+  Home,
+  Users,
+  Target,
+  CheckCircle,
+  Star,
+  ArrowRight,
+} from "lucide-react";
 
-const Index = () => {
-  const modules = [
-    {
-      title: "Inventory Simulator",
-      description: "Test inventory decisions before they happen with AI-powered simulations",
-      icon: "📦",
-      path: "/inventory-simulator",
-      color: "bg-teal-600"
-    },
-    {
-      title: "Returns Radar",
-      description: "Predict returns and optimize reverse logistics pathways",
-      icon: "🔁",
-      path: "/returns-radar",
-      color: "bg-slate-600"
-    },
-    {
-      title: "Supplier Scoreboard",
-      description: "Real-time supplier performance and risk assessment dashboard",
-      icon: "🧮",
-      path: "/supplier-score",
-      color: "bg-gray-700"
-    },
-    {
-      title: "DemandDNA",
-      description: "Predict micro-trends by analyzing social signals and search patterns",
-      icon: "🔍",
-      path: "/demand-dna",
-      color: "bg-teal-700"
-    },
-    {
-      title: "SmartDropSync",
-      description: "Optimize delivery dock scheduling to reduce wait times and congestion",
-      icon: "🚚",
-      path: "/smart-drop-sync",
-      color: "bg-slate-700"
-    },
-    {
-      title: "LoadSwap",
-      description: "Smart parcel rebalancing between delivery vehicles for optimal efficiency",
-      icon: "🔄",
-      path: "/loadswap",
-      color: "bg-gray-600"
-    }
-  ];
-
+export default function LandingPage() {
   return (
-    <Layout>
-      <div className="relative overflow-hidden">
-        {/* Hero Section */}
-        <div className="bg-gradient-to-br from-teal-700 to-slate-800 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-            <div className="text-center">
-              <h1 className="text-5xl md:text-6xl font-bold mb-6">
-                Transforming Supply Chains
-              </h1>
-              <p className="text-xl md:text-2xl mb-8 text-teal-100">
-                Innovating inventory, delivery, and returns with AI
-              </p>
-              <div className="inline-flex items-center space-x-4">
-                <div className="w-16 h-16 bg-teal-200 rounded-full flex items-center justify-center">
-                  <span className="text-teal-800 font-bold text-2xl">W</span>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-teal-800 to-emerald-900">
+      {/* Navbar */}
+      <nav className="bg-slate-900/95 backdrop-blur-sm border-b border-teal-600/30 sticky top-0 z-50">
+        <div className="container mx-auto px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center justify-center space-x-8 flex-1">
+              <div className="flex items-center space-x-3">
+                <div className="w-10 h-10 bg-gradient-to-r from-teal-400 to-emerald-400 rounded-full flex items-center justify-center">
+                  <span className="text-slate-900 font-bold text-lg">W</span>
                 </div>
-                <span className="text-teal-200 font-semibold text-lg">Sparkathon 2024</span>
+                <span className="text-white font-semibold text-xl">
+                  OptiChain
+                </span>
+              </div>
+
+              <div className="hidden md:flex items-center space-x-8">
+                <a
+                  href="#home"
+                  className="text-teal-100 hover:text-white transition-colors"
+                >
+                  Home
+                </a>
+                <a
+                  href="#features"
+                  className="text-teal-100 hover:text-white transition-colors"
+                >
+                  Features
+                </a>
+                <a
+                  href="#about"
+                  className="text-teal-100 hover:text-white transition-colors"
+                >
+                  About
+                </a>
+                <a
+                  href="#contact"
+                  className="text-teal-100 hover:text-white transition-colors"
+                >
+                  Contact
+                </a>
+                <Button
+                  variant="outline"
+                  className="border-teal-200 text-teal-100 hover:bg-teal-200 hover:text-teal-800 bg-transparent"
+                >
+                  Login / Signup
+                </Button>
               </div>
             </div>
           </div>
         </div>
+      </nav>
 
-        {/* Modules Grid */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">AI-Powered Supply Chain Solutions</h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Explore our comprehensive suite of AI tools designed to revolutionize every aspect of Walmart's supply chain operations
+      {/* Hero Section */}
+      <section id="home" className="py-20 px-4">
+        <div className="container mx-auto text-center">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            Revolutionizing Walmart's Supply Chain with AI
+          </h1>
+          <h2 className="text-2xl md:text-3xl text-teal-100 mb-8 font-medium">
+            Inventory. Delivery. Returns. Smarter than ever.
+          </h2>
+          <p className="text-xl text-teal-50 mb-12 max-w-4xl mx-auto leading-relaxed">
+            An intelligent dashboard built for Walmart Sparkathon 2025.
+            Suppliers, managers, and dispatchers can simulate, predict, and
+            optimize operations with cutting-edge AI technology.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
+            <Button
+              size="lg"
+              className="bg-white text-teal-800 hover:bg-teal-50 px-8 py-4 text-lg font-semibold"
+            >
+              Login / Signup
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-teal-800 px-8 py-4 text-lg font-semibold bg-transparent"
+            >
+              Explore Features
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* About Walmart / Sparkathon */}
+      <section id="about" className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold text-gray-900 mb-8">
+              Why Walmart?
+            </h2>
+            <p className="text-xl text-gray-600 leading-relaxed">
+              Walmart is one of the world's largest retailers, serving millions
+              of customers daily. A fast, efficient supply chain is critical for
+              maintaining customer satisfaction and operational excellence. This
+              project helps streamline operations through real-time AI-driven
+              tools, enabling better decision-making, reduced costs, and
+              improved customer experiences across the entire supply chain
+              ecosystem.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section id="features" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Powerful Features
+            </h2>
+            <p className="text-xl text-gray-600">
+              AI-driven tools to optimize every aspect of your supply chain
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {modules.map((module, index) => (
-              <Card key={index} className="group hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-0 shadow-lg">
-                <CardHeader className="pb-4">
-                  <div className={`w-12 h-12 ${module.color} rounded-lg flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition-transform`}>
-                    {module.icon}
-                  </div>
-                  <CardTitle className="text-xl font-semibold text-gray-900">{module.title}</CardTitle>
-                  <CardDescription className="text-gray-600">
-                    {module.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <Link to={module.path}>
-                    <Button className="w-full bg-teal-700 hover:bg-teal-800 text-white group-hover:bg-teal-600 transition-colors">
-                      Explore Module
-                      <ArrowRight className="ml-2 h-4 w-4" />
-                    </Button>
-                  </Link>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Inventory Simulator",
+                description: "Predict results before moving stock",
+                icon: Package,
+                color: "bg-blue-500",
+              },
+              {
+                title: "Returns Intelligence",
+                description: "Estimate return chances and plan reverse routes",
+                icon: RotateCcw,
+                color: "bg-red-500",
+              },
+              {
+                title: "Supplier Scoreboard",
+                description: "Rate suppliers and detect delays",
+                icon: BarChart3,
+                color: "bg-green-500",
+              },
+              {
+                title: "ShopTrends",
+                description: "Forecast product demand from social signals",
+                icon: TrendingUp,
+                color: "bg-purple-500",
+              },
+              {
+                title: "SmartDropSync",
+                description: "Schedule delivery docks and avoid congestion",
+                icon: Truck,
+                color: "bg-orange-500",
+              },
+              {
+                title: "LoadSwap",
+                description: "Rebalance delivery van loads in real time",
+                icon: Zap,
+                color: "bg-yellow-500",
+              },
+            ].map((feature, index) => {
+              const IconComponent = feature.icon;
+              return (
+                <Card
+                  key={index}
+                  className="hover:shadow-2xl hover:scale-105 transition-all duration-500 border-0 bg-gradient-to-br from-white via-gray-50 to-white hover:from-teal-50 hover:via-white hover:to-emerald-50 group relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -skew-x-12 group-hover:animate-pulse"></div>
+                  <CardHeader className="relative z-10">
+                    <div
+                      className={`w-12 h-12 ${feature.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-125 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-2xl`}
+                    >
+                      <IconComponent className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                    <CardTitle className="text-xl group-hover:text-teal-700 transition-colors duration-300 group-hover:translate-x-1">
+                      {feature.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="relative z-10">
+                    <CardDescription className="text-base group-hover:text-gray-700 transition-all duration-300 group-hover:translate-x-1">
+                      {feature.description}
+                    </CardDescription>
+                  </CardContent>
+                </Card>
+              );
+            })}
           </div>
         </div>
+      </section>
 
-        {/* Stats Section */}
-        <div className="bg-gray-100 py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <div className="text-4xl font-bold text-teal-700 mb-2">6</div>
-                <div className="text-gray-600">AI-Powered Modules</div>
+      {/* How It Works */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              How It Works
+            </h2>
+            <p className="text-xl text-gray-600">
+              Simple steps to transform your supply chain operations
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {[
+              {
+                step: "1",
+                title: "User logs in based on role",
+                description:
+                  "Choose your role as Supplier, Store Manager, or Delivery Dispatcher",
+                icon: Users,
+              },
+              {
+                step: "2",
+                title: "Runs simulations or views dashboards",
+                description:
+                  "Access role-specific tools and real-time analytics",
+                icon: Target,
+              },
+              {
+                step: "3",
+                title: "Takes action using smart suggestions",
+                description:
+                  "Implement AI-powered recommendations to optimize operations",
+                icon: CheckCircle,
+              },
+            ].map((step, index) => {
+              const IconComponent = step.icon;
+              return (
+                <div key={index} className="text-center">
+                  <div className="w-16 h-16 bg-teal-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                    <IconComponent className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="bg-teal-100 text-teal-800 rounded-full w-8 h-8 flex items-center justify-center mx-auto mb-4 font-bold">
+                    {step.step}
+                  </div>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600">{step.description}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Role-Based Access */}
+      <section className="py-20 bg-gray-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Role-Based Access
+            </h2>
+            <p className="text-xl text-gray-600">
+              Tailored dashboards for every user type
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {[
+              {
+                role: "Supplier",
+                access: [
+                  "Supplier Scoreboard",
+                  "SmartDropSync",
+                  "Returns Intelligence",
+                ],
+                color: "bg-blue-500",
+                icon: Package,
+              },
+              {
+                role: "Walmart Store Manager",
+                access: [
+                  "Inventory Simulator",
+                  "Returns Intelligence",
+                  "ShopTrends",
+                  "Supplier Scoreboard (Read-only)",
+                ],
+                color: "bg-green-500",
+                icon: Home,
+              },
+              {
+                role: "Delivery Dispatcher",
+                access: ["LoadSwap", "SmartDropSync"],
+                color: "bg-purple-500",
+                icon: Truck,
+              },
+            ].map((roleData, index) => {
+              const IconComponent = roleData.icon;
+              return (
+                <Card
+                  key={index}
+                  className="hover:shadow-2xl hover:scale-105 transition-all duration-500 border-0 bg-gradient-to-br from-white via-gray-50 to-white hover:from-blue-50 hover:via-white hover:to-purple-50 group relative overflow-hidden"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -skew-x-12"></div>
+                  <CardHeader className="relative z-10">
+                    <div
+                      className={`w-12 h-12 ${roleData.color} rounded-lg flex items-center justify-center mb-4 group-hover:scale-125 group-hover:rotate-6 transition-all duration-500 shadow-lg group-hover:shadow-2xl`}
+                    >
+                      <IconComponent className="w-6 h-6 text-white group-hover:scale-110 transition-transform duration-300" />
+                    </div>
+                    <CardTitle className="text-xl group-hover:text-teal-700 transition-colors duration-300 group-hover:translate-x-1">
+                      {roleData.role}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent className="relative z-10">
+                    <div className="space-y-2">
+                      <p className="font-medium text-gray-700 mb-3 group-hover:translate-x-1 transition-transform duration-300">
+                        Can Access:
+                      </p>
+                      <ul className="space-y-2">
+                        {roleData.access.map((item, idx) => (
+                          <li
+                            key={idx}
+                            className="flex items-center space-x-2 group-hover:translate-x-2 transition-all duration-300"
+                            style={{ transitionDelay: `${idx * 50}ms` }}
+                          >
+                            <CheckCircle className="w-4 h-4 text-green-500 group-hover:scale-110 transition-transform duration-300" />
+                            <span className="text-sm text-gray-600 group-hover:text-gray-800 transition-colors duration-300">
+                              {item}
+                            </span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              What Users Say
+            </h2>
+            <p className="text-xl text-gray-600">
+              Real results from our AI-powered tools
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Card className="hover:shadow-2xl hover:scale-105 transition-all duration-500 border-0 bg-gradient-to-br from-white via-gray-50 to-white hover:from-yellow-50 hover:via-white hover:to-orange-50 group relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -skew-x-12"></div>
+              <CardContent className="pt-6 relative z-10">
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 text-yellow-400 fill-current group-hover:scale-110 transition-transform duration-300"
+                      style={{ transitionDelay: `${i * 50}ms` }}
+                    />
+                  ))}
+                </div>
+                <blockquote className="text-lg text-gray-700 mb-4 group-hover:text-gray-800 group-hover:translate-x-1 transition-all duration-300">
+                  "SmartDropSync helped us reduce dock wait time by 25%! The AI
+                  predictions are incredibly accurate."
+                </blockquote>
+                <div className="flex items-center group-hover:translate-x-1 transition-transform duration-300">
+                  <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white font-semibold">SA</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Supplier A</p>
+                    <p className="text-sm text-gray-600">Regional Supplier</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            <Card className="hover:shadow-2xl hover:scale-105 transition-all duration-500 border-0 bg-gradient-to-br from-white via-gray-50 to-white hover:from-yellow-50 hover:via-white hover:to-orange-50 group relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform -skew-x-12"></div>
+              <CardContent className="pt-6 relative z-10">
+                <div className="flex items-center mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 text-yellow-400 fill-current group-hover:scale-110 transition-transform duration-300"
+                      style={{ transitionDelay: `${i * 50}ms` }}
+                    />
+                  ))}
+                </div>
+                <blockquote className="text-lg text-gray-700 mb-4 group-hover:text-gray-800 group-hover:translate-x-1 transition-all duration-300">
+                  "Inventory Simulator caught a potential stockout 2 weeks
+                  early. Saved us thousands in lost sales!"
+                </blockquote>
+                <div className="flex items-center group-hover:translate-x-1 transition-transform duration-300">
+                  <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-white font-semibold">SM</span>
+                  </div>
+                  <div>
+                    <p className="font-semibold text-gray-900">Store Manager</p>
+                    <p className="text-sm text-gray-600">Walmart Supercenter</p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20 bg-gradient-to-r from-teal-600 to-teal-700">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-4xl font-bold text-white mb-6">
+            Ready to transform Walmart's supply chain?
+          </h2>
+          <p className="text-xl text-teal-100 mb-8 max-w-2xl mx-auto">
+            Get started by choosing your role and logging in. Experience the
+            future of supply chain management today.
+          </p>
+          <Button
+            size="lg"
+            className="bg-white text-teal-800 hover:bg-teal-50 px-8 py-4 text-lg font-semibold"
+          >
+            Get Started
+            <ArrowRight className="w-5 h-5 ml-2" />
+          </Button>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gradient-to-br from-slate-900 via-teal-800 to-emerald-900 text-teal-100 py-12">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-start">
+            <div className="flex items-center space-x-3">
+              <div className="w-8 h-8 bg-gradient-to-r from-teal-400 to-emerald-400 rounded-full flex items-center justify-center">
+                <span className="text-slate-900 font-bold">W</span>
               </div>
-              <div>
-                <div className="text-4xl font-bold text-teal-700 mb-2">360°</div>
-                <div className="text-gray-600">Supply Chain Coverage</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-teal-700 mb-2">Real-time</div>
-                <div className="text-gray-600">Decision Making</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-teal-700 mb-2">Smart</div>
-                <div className="text-gray-600">Automation</div>
-              </div>
+              <span className="font-semibold text-xl">OptiChain</span>
             </div>
           </div>
         </div>
-      </div>
-    </Layout>
+      </footer>
+    </div>
   );
-};
-
-export default Index;
+}
