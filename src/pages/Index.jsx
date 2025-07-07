@@ -261,7 +261,7 @@ export default function LandingPage() {
         </Tabs>
 
         {/* Role-based Access Information */}
-        {selectedRole && (
+        {/* {selectedRole && (
           <div className="mt-6 pt-6 border-t border-teal-600/30">
             <h3 className="font-semibold text-teal-100 mb-3 text-center">
               Your Dashboard Access:
@@ -298,7 +298,7 @@ export default function LandingPage() {
               })}
             </div>
           </div>
-        )}
+        )} */}
       </DialogContent>
     </Dialog>
   );
@@ -314,7 +314,9 @@ export default function LandingPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-teal-400 to-emerald-400 rounded-full flex items-center justify-center">
                 <span className="text-slate-900 font-bold text-lg">W</span>
               </div>
-              <span className="text-white font-semibold text-xl">OptiChain</span>
+              <span className="text-white font-semibold text-xl">
+                OptiChain
+              </span>
             </div>
             {/* Centered Nav Links */}
             <div className="hidden md:flex items-center space-x-10 absolute left-1/2 transform -translate-x-1/2">
@@ -347,8 +349,6 @@ export default function LandingPage() {
         </div>
       </nav>
 
-
-
       {/* Hero Section */}
       <section id="home" className="py-20 px-4">
         <div className="container mx-auto text-center">
@@ -359,9 +359,9 @@ export default function LandingPage() {
             Inventory, Delivery, Returns, Smarter than ever.
           </h2>
           <p className="text-xl text-teal-50 mb-12 max-w-4xl mx-auto leading-relaxed">
-            An intelligent dashboard built for Walmart Sparkathon 2025.
-            Suppliers, managers, and dispatchers can simulate, predict, and
-            optimize operations with cutting-edge AI technology.
+            An intelligent dashboard built for Walmart. Suppliers, managers, and
+            dispatchers can simulate, predict, and optimize operations with
+            cutting-edge AI technology.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
