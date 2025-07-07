@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -24,7 +25,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Badge } from "@/components/ui/badge";
 import {
   Package,
   RotateCcw,
@@ -41,267 +41,99 @@ import {
 } from "lucide-react";
 
 export default function LandingPage() {
+  const navigate = useNavigate();
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedRole, setSelectedRole] = useState("");
+  const [activeTab, setActiveTab] = useState("login");
+
+  // Separate state for login form
+  const [loginForm, setLoginForm] = useState({
+    email: "",
+    password: "",
+    role: "",
+  });
+
+  // Separate state for signup form
+  const [signupForm, setSignupForm] = useState({
+    name: "",
+    email: "",
+    password: "",
+    role: "",
+  });
+
+  const roleRedirectMap = {
+    supplier: "/supplier-dashboard",
+    manager: "/walmart-store-manager-dashboard",
+    dispatcher: "/delivery-dispatcher-dashboard",
+  };
+
+  const handleDialogOpen = () => {
+    setIsDialogOpen(true);
+  };
+
+  const handleDialogClose = () => {
+    setIsDialogOpen(false);
+    // Reset forms when dialog closes
+    setLoginForm({ email: "", password: "", role: "" });
+    setSignupForm({ name: "", email: "", password: "", role: "" });
+    setActiveTab("login");
+  };
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+
+    if (!loginForm.email || !loginForm.password || !loginForm.role) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    console.log("Logging in with:", loginForm);
+
+    // Close dialog
+    setIsDialogOpen(false);
+
+    // Navigate to appropriate dashboard
+    const redirectPath = roleRedirectMap[loginForm.role];
+    if (redirectPath) {
+      navigate(redirectPath);
+    }
+
+    // Reset form
+    setLoginForm({ email: "", password: "", role: "" });
+  };
+
+  const handleSignup = (e) => {
+    e.preventDefault();
+
+    if (
+      !signupForm.name ||
+      !signupForm.email ||
+      !signupForm.password ||
+      !signupForm.role
+    ) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    console.log("Creating account with:", signupForm);
+
+    // Close dialog
+    setIsDialogOpen(false);
+
+    // Navigate to appropriate dashboard
+    const redirectPath = roleRedirectMap[signupForm.role];
+    if (redirectPath) {
+      navigate(redirectPath);
+    }
+
+    // Reset form
+    setSignupForm({ name: "", email: "", password: "", role: "" });
+  };
 
   const scrollToFeatures = () => {
     document.getElementById("features")?.scrollIntoView({
       behavior: "smooth",
     });
   };
-
-  const roleAccess = {
-    supplier: [
-      {
-        name: "Supplier Scoreboard",
-        icon: BarChart3,
-        description: "Track your performance metrics",
-      },
-      {
-        name: "SmartDropSync",
-        icon: Truck,
-        description: "Optimize delivery coordination",
-      },
-      {
-        name: "Returns Intelligence",
-        icon: RotateCcw,
-        description: "Monitor return patterns",
-      },
-    ],
-    manager: [
-      {
-        name: "Inventory Simulator",
-        icon: Package,
-        description: "Simulate inventory scenarios",
-      },
-      {
-        name: "Returns Intelligence",
-        icon: RotateCcw,
-        description: "Monitor return patterns",
-      },
-      {
-        name: "ShopTrends",
-        icon: TrendingUp,
-        description: "Analyze demand patterns",
-      },
-      {
-        name: "Supplier Scoreboard",
-        icon: BarChart3,
-        description: "View supplier metrics (Read-only)",
-        readonly: true,
-      },
-    ],
-    dispatcher: [
-      {
-        name: "LoadSwap",
-        icon: Zap,
-        description: "Optimize load distribution",
-      },
-      {
-        name: "SmartDropSync",
-        icon: Truck,
-        description: "Coordinate delivery schedules",
-      },
-    ],
-  };
-
-  const LoginSignupDialog = () => (
-    <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-      <DialogContent className="sm:max-w-md bg-gradient-to-br from-slate-900 via-teal-800 to-emerald-900 border-teal-600/30 text-white">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-bold text-center text-white">
-            Welcome to OptiChain
-          </DialogTitle>
-          <DialogDescription className="text-center text-teal-100">
-            Access your supply chain dashboard
-          </DialogDescription>
-        </DialogHeader>
-
-        <Tabs defaultValue="login" className="w-full">
-          <TabsList className="grid w-full grid-cols-2 bg-slate-800/50">
-            <TabsTrigger
-              value="login"
-              className="data-[state=active]:bg-teal-600 data-[state=active]:text-white"
-            >
-              Login
-            </TabsTrigger>
-            <TabsTrigger
-              value="signup"
-              className="data-[state=active]:bg-teal-600 data-[state=active]:text-white"
-            >
-              Sign Up
-            </TabsTrigger>
-          </TabsList>
-
-          <TabsContent value="login" className="space-y-4 mt-6">
-            <div className="space-y-2">
-              <Label htmlFor="login-email" className="text-teal-100">
-                Email
-              </Label>
-              <Input
-                id="login-email"
-                type="email"
-                placeholder="Enter your email"
-                className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="login-password" className="text-teal-100">
-                Password
-              </Label>
-              <Input
-                id="login-password"
-                type="password"
-                placeholder="Enter your password"
-                className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="login-role" className="text-teal-100">
-                Role
-              </Label>
-              <Select onValueChange={setSelectedRole}>
-                <SelectTrigger className="bg-slate-800/50 border-teal-600/30 text-white">
-                  <SelectValue placeholder="Select your role" />
-                </SelectTrigger>
-                <SelectContent className="bg-slate-800 border-teal-600/30">
-                  <SelectItem
-                    value="supplier"
-                    className="text-white hover:bg-teal-600"
-                  >
-                    Supplier
-                  </SelectItem>
-                  <SelectItem
-                    value="manager"
-                    className="text-white hover:bg-teal-600"
-                  >
-                    Walmart Store Manager
-                  </SelectItem>
-                  <SelectItem
-                    value="dispatcher"
-                    className="text-white hover:bg-teal-600"
-                  >
-                    Delivery Dispatcher
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white">
-              Sign In
-            </Button>
-          </TabsContent>
-
-          <TabsContent value="signup" className="space-y-4 mt-6">
-            <div className="space-y-2">
-              <Label htmlFor="signup-name" className="text-teal-100">
-                Full Name
-              </Label>
-              <Input
-                id="signup-name"
-                placeholder="Enter your full name"
-                className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="signup-email" className="text-teal-100">
-                Email
-              </Label>
-              <Input
-                id="signup-email"
-                type="email"
-                placeholder="Enter your email"
-                className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="signup-password" className="text-teal-100">
-                Password
-              </Label>
-              <Input
-                id="signup-password"
-                type="password"
-                placeholder="Create a password"
-                className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
-              />
-            </div>
-            <div className="space-y-2">
-              <Label htmlFor="signup-role" className="text-teal-100">
-                Role
-              </Label>
-              <Select onValueChange={setSelectedRole}>
-                <SelectTrigger className="bg-slate-800/50 border-teal-600/30 text-white">
-                  <SelectValue placeholder="Select your role" />
-                </SelectTrigger>
-                <SelectContent className="bg-slate-800 border-teal-600/30">
-                  <SelectItem
-                    value="supplier"
-                    className="text-white hover:bg-teal-600"
-                  >
-                    Supplier
-                  </SelectItem>
-                  <SelectItem
-                    value="manager"
-                    className="text-white hover:bg-teal-600"
-                  >
-                    Walmart Store Manager
-                  </SelectItem>
-                  <SelectItem
-                    value="dispatcher"
-                    className="text-white hover:bg-teal-600"
-                  >
-                    Delivery Dispatcher
-                  </SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
-            <Button className="w-full bg-teal-600 hover:bg-teal-700 text-white">
-              Create Account
-            </Button>
-          </TabsContent>
-        </Tabs>
-
-        {/* Role-based Access Information */}
-        {/* {selectedRole && (
-          <div className="mt-6 pt-6 border-t border-teal-600/30">
-            <h3 className="font-semibold text-teal-100 mb-3 text-center">
-              Your Dashboard Access:
-            </h3>
-            <div className="space-y-3 max-h-48 overflow-y-auto">
-              {roleAccess[selectedRole]?.map((access, index) => {
-                const IconComponent = access.icon;
-                return (
-                  <div
-                    key={index}
-                    className="flex items-start space-x-3 p-3 bg-slate-800/30 rounded-lg hover:bg-slate-800/50 transition-colors duration-300"
-                  >
-                    <IconComponent className="w-5 h-5 text-teal-400 mt-0.5 flex-shrink-0" />
-                    <div className="flex-1 min-w-0">
-                      <div className="flex items-center space-x-2">
-                        <p className="font-medium text-white text-sm">
-                          {access.name}
-                        </p>
-                        {access.readonly && (
-                          <Badge
-                            variant="outline"
-                            className="text-xs border-teal-400 text-teal-400"
-                          >
-                            Read-only
-                          </Badge>
-                        )}
-                      </div>
-                      <p className="text-xs text-teal-200 mt-1">
-                        {access.description}
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        )} */}
-      </DialogContent>
-    </Dialog>
-  );
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-teal-800 to-emerald-900">
@@ -363,18 +195,16 @@ export default function LandingPage() {
             dispatchers can simulate, predict, and optimize operations with
             cutting-edge AI technology.
           </p>
-
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <Button
               size="lg"
               variant="outline"
               className="border-white text-white hover:bg-white hover:text-teal-800 px-8 py-4 text-lg font-semibold bg-transparent"
-              onClick={() => setIsDialogOpen(true)}
+              onClick={handleDialogOpen}
             >
               Get Started
               <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
-
             <Button
               size="lg"
               variant="outline"
@@ -716,7 +546,220 @@ export default function LandingPage() {
       </section>
 
       {/* Login/Signup Dialog */}
-      <LoginSignupDialog />
+      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+        <DialogContent className="sm:max-w-md bg-gradient-to-br from-slate-900 via-teal-800 to-emerald-900 border-teal-600/30 text-white">
+          <DialogHeader>
+            <DialogTitle className="text-2xl font-bold text-center text-white">
+              Welcome to OptiChain
+            </DialogTitle>
+            <DialogDescription className="text-center text-teal-100">
+              Access your supply chain dashboard
+            </DialogDescription>
+          </DialogHeader>
+
+          <Tabs
+            value={activeTab}
+            onValueChange={setActiveTab}
+            className="w-full"
+          >
+            <TabsList className="grid w-full grid-cols-2 bg-slate-800/50">
+              <TabsTrigger
+                value="login"
+                className="data-[state=active]:bg-teal-600 data-[state=active]:text-white"
+              >
+                Login
+              </TabsTrigger>
+              <TabsTrigger
+                value="signup"
+                className="data-[state=active]:bg-teal-600 data-[state=active]:text-white"
+              >
+                Sign Up
+              </TabsTrigger>
+            </TabsList>
+
+            <TabsContent value="login" className="space-y-4 mt-6">
+              <form onSubmit={handleLogin} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="login-email" className="text-teal-100">
+                    Email
+                  </Label>
+                  <Input
+                    id="login-email"
+                    type="email"
+                    placeholder="Enter your email"
+                    value={loginForm.email}
+                    onChange={(e) =>
+                      setLoginForm((prev) => ({
+                        ...prev,
+                        email: e.target.value,
+                      }))
+                    }
+                    className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="login-password" className="text-teal-100">
+                    Password
+                  </Label>
+                  <Input
+                    id="login-password"
+                    type="password"
+                    placeholder="Enter your password"
+                    value={loginForm.password}
+                    onChange={(e) =>
+                      setLoginForm((prev) => ({
+                        ...prev,
+                        password: e.target.value,
+                      }))
+                    }
+                    className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="login-role" className="text-teal-100">
+                    Role
+                  </Label>
+                  <Select
+                    value={loginForm.role}
+                    onValueChange={(value) =>
+                      setLoginForm((prev) => ({ ...prev, role: value }))
+                    }
+                  >
+                    <SelectTrigger className="bg-slate-800/50 border-teal-600/30 text-white">
+                      <SelectValue placeholder="Select your role" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-slate-800 border-teal-600/30">
+                      <SelectItem
+                        value="supplier"
+                        className="text-white hover:bg-teal-600"
+                      >
+                        Supplier
+                      </SelectItem>
+                      <SelectItem
+                        value="manager"
+                        className="text-white hover:bg-teal-600"
+                      >
+                        Walmart Store Manager
+                      </SelectItem>
+                      <SelectItem
+                        value="dispatcher"
+                        className="text-white hover:bg-teal-600"
+                      >
+                        Delivery Dispatcher
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <Button
+                  type="submit"
+                  className="w-full bg-teal-600 hover:bg-teal-700 text-white"
+                >
+                  Sign In
+                </Button>
+              </form>
+            </TabsContent>
+
+            <TabsContent value="signup" className="space-y-4 mt-6">
+              <form onSubmit={handleSignup} className="space-y-4">
+                <div className="space-y-2">
+                  <Label htmlFor="signup-name" className="text-teal-100">
+                    Full Name
+                  </Label>
+                  <Input
+                    id="signup-name"
+                    placeholder="Enter your full name"
+                    value={signupForm.name}
+                    onChange={(e) =>
+                      setSignupForm((prev) => ({
+                        ...prev,
+                        name: e.target.value,
+                      }))
+                    }
+                    className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="signup-email" className="text-teal-100">
+                    Email
+                  </Label>
+                  <Input
+                    id="signup-email"
+                    type="email"
+                    placeholder="Enter your email"
+                    value={signupForm.email}
+                    onChange={(e) =>
+                      setSignupForm((prev) => ({
+                        ...prev,
+                        email: e.target.value,
+                      }))
+                    }
+                    className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="signup-password" className="text-teal-100">
+                    Password
+                  </Label>
+                  <Input
+                    id="signup-password"
+                    type="password"
+                    placeholder="Create a password"
+                    value={signupForm.password}
+                    onChange={(e) =>
+                      setSignupForm((prev) => ({
+                        ...prev,
+                        password: e.target.value,
+                      }))
+                    }
+                    className="bg-slate-800/50 border-teal-600/30 text-white placeholder:text-teal-200"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <Label htmlFor="signup-role" className="text-teal-100">
+                    Role
+                  </Label>
+                  <Select
+                    value={signupForm.role}
+                    onValueChange={(value) =>
+                      setSignupForm((prev) => ({ ...prev, role: value }))
+                    }
+                  >
+                    <SelectTrigger className="bg-slate-800/50 border-teal-600/30 text-white">
+                      <SelectValue placeholder="Select your role" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-slate-800 border-teal-600/30">
+                      <SelectItem
+                        value="supplier"
+                        className="text-white hover:bg-teal-600"
+                      >
+                        Supplier
+                      </SelectItem>
+                      <SelectItem
+                        value="manager"
+                        className="text-white hover:bg-teal-600"
+                      >
+                        Walmart Store Manager
+                      </SelectItem>
+                      <SelectItem
+                        value="dispatcher"
+                        className="text-white hover:bg-teal-600"
+                      >
+                        Delivery Dispatcher
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                <Button
+                  type="submit"
+                  className="w-full bg-teal-600 hover:bg-teal-700 text-white"
+                >
+                  Create Account
+                </Button>
+              </form>
+            </TabsContent>
+          </Tabs>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 }
