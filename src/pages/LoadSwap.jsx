@@ -1,5 +1,10 @@
-import Layout from "@/components/Layout";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Truck, MapPin, ArrowRight } from "lucide-react";
@@ -9,40 +14,75 @@ const LoadSwap = () => {
   const [swapExecuted, setSwapExecuted] = useState(false);
 
   const vanAData = {
-    id: 'Van A',
-    driver: 'John Smith',
+    id: "Van A",
+    driver: "John Smith",
     currentLoad: 95,
     capacity: 100,
     parcels: [
-      { id: 'P001', destination: 'Downtown', priority: 'High', weight: '5 lbs' },
-      { id: 'P002', destination: 'Suburb North', priority: 'Medium', weight: '3 lbs' },
-      { id: 'P003', destination: 'Industrial Area', priority: 'High', weight: '8 lbs' },
-      { id: 'P004', destination: 'Mall District', priority: 'Low', weight: '2 lbs' },
-      { id: 'P005', destination: 'Residential', priority: 'Medium', weight: '4 lbs' },
+      {
+        id: "P001",
+        destination: "Downtown",
+        priority: "High",
+        weight: "5 lbs",
+      },
+      {
+        id: "P002",
+        destination: "Suburb North",
+        priority: "Medium",
+        weight: "3 lbs",
+      },
+      {
+        id: "P003",
+        destination: "Industrial Area",
+        priority: "High",
+        weight: "8 lbs",
+      },
+      {
+        id: "P004",
+        destination: "Mall District",
+        priority: "Low",
+        weight: "2 lbs",
+      },
+      {
+        id: "P005",
+        destination: "Residential",
+        priority: "Medium",
+        weight: "4 lbs",
+      },
     ],
-    status: 'Overloaded',
-    estimatedDelay: '45 minutes'
+    status: "Overloaded",
+    estimatedDelay: "45 minutes",
   };
 
   const vanBData = {
-    id: 'Van B',
-    driver: 'Sarah Johnson',
+    id: "Van B",
+    driver: "Sarah Johnson",
     currentLoad: 45,
     capacity: 100,
     parcels: [
-      { id: 'P101', destination: 'City Center', priority: 'High', weight: '6 lbs' },
-      { id: 'P102', destination: 'East Side', priority: 'Medium', weight: '4 lbs' },
+      {
+        id: "P101",
+        destination: "City Center",
+        priority: "High",
+        weight: "6 lbs",
+      },
+      {
+        id: "P102",
+        destination: "East Side",
+        priority: "Medium",
+        weight: "4 lbs",
+      },
     ],
-    status: 'Under-utilized',
-    estimatedDelay: 'On time'
+    status: "Under-utilized",
+    estimatedDelay: "On time",
   };
 
   const swapSuggestion = {
-    swapPoint: 'Central Hub - 5th Street',
-    parcelsToSwap: ['P002', 'P004', 'P005'],
-    timeToSwap: '8 minutes',
-    fuelSaved: '$12.50',
-    slaImprovement: '23%'
+    swapPoint: "Central Hub - 5th Street",
+    parcelsToSwap: ["P002", "P004", "P005"],
+    timeToSwap: "8 minutes",
+    fuelSaved: "$12.50",
+    slaImprovement: "23%",
   };
 
   const handleSwapExecution = () => {
@@ -50,27 +90,34 @@ const LoadSwap = () => {
   };
 
   const getLoadColor = (load) => {
-    if (load >= 90) return 'bg-red-500';
-    if (load >= 70) return 'bg-yellow-500';
-    return 'bg-green-500';
+    if (load >= 90) return "bg-red-500";
+    if (load >= 70) return "bg-yellow-500";
+    return "bg-green-500";
   };
 
   const getPriorityColor = (priority) => {
     switch (priority) {
-      case 'High': return 'bg-red-100 text-red-800';
-      case 'Medium': return 'bg-yellow-100 text-yellow-800';
-      case 'Low': return 'bg-green-100 text-green-800';
-      default: return 'bg-gray-100 text-gray-800';
+      case "High":
+        return "bg-red-100 text-red-800";
+      case "Medium":
+        return "bg-yellow-100 text-yellow-800";
+      case "Low":
+        return "bg-green-100 text-green-800";
+      default:
+        return "bg-gray-100 text-gray-800";
     }
   };
 
   return (
-    <Layout>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-teal-800 to-emerald-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">🔄 LoadSwap – Smart Parcel Rebalancing</h1>
-          <p className="text-lg text-gray-600">
-            Like Uber Pool for packages. Intelligently redistributes parcels between delivery vehicles to save costs and improve delivery times.
+          <h1 className="text-4xl font-bold text-white mb-4">
+            🔄 LoadSwap – Smart Parcel Rebalancing
+          </h1>
+          <p className="text-lg text-teal-100">
+            Like Uber Pool for packages. Intelligently redistributes parcels
+            between delivery vehicles to save costs and improve delivery times.
           </p>
         </div>
 
@@ -84,10 +131,13 @@ const LoadSwap = () => {
                   <Truck className="mr-2 h-5 w-5" />
                   {vanAData.id} - {vanAData.driver}
                 </CardTitle>
-                <Badge className="bg-red-100 text-red-800">{vanAData.status}</Badge>
+                <Badge className="bg-red-100 text-red-800">
+                  {vanAData.status}
+                </Badge>
               </div>
               <CardDescription>
-                Load: {vanAData.currentLoad}% of capacity • Delay: {vanAData.estimatedDelay}
+                Load: {vanAData.currentLoad}% of capacity • Delay:{" "}
+                {vanAData.estimatedDelay}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -97,31 +147,45 @@ const LoadSwap = () => {
                   <span>{vanAData.currentLoad}%</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div 
-                    className={`h-3 rounded-full ${getLoadColor(vanAData.currentLoad)}`}
+                  <div
+                    className={`h-3 rounded-full ${getLoadColor(
+                      vanAData.currentLoad
+                    )}`}
                     style={{ width: `${vanAData.currentLoad}%` }}
                   ></div>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <h4 className="font-semibold text-sm">Parcels ({vanAData.parcels.length}):</h4>
+                <h4 className="font-semibold text-sm">
+                  Parcels ({vanAData.parcels.length}):
+                </h4>
                 {vanAData.parcels.map((parcel, index) => (
-                  <div key={index} className={`p-2 rounded border ${
-                    swapSuggestion.parcelsToSwap.includes(parcel.id) 
-                      ? 'bg-yellow-100 border-yellow-300' 
-                      : 'bg-white border-gray-200'
-                  }`}>
+                  <div
+                    key={index}
+                    className={`p-2 rounded border ${
+                      swapSuggestion.parcelsToSwap.includes(parcel.id)
+                        ? "bg-yellow-100 border-yellow-300"
+                        : "bg-white border-gray-200"
+                    }`}
+                  >
                     <div className="flex justify-between items-center">
                       <div>
                         <span className="font-medium text-sm">{parcel.id}</span>
-                        <p className="text-xs text-gray-600">{parcel.destination}</p>
+                        <p className="text-xs text-gray-600">
+                          {parcel.destination}
+                        </p>
                       </div>
                       <div className="text-right">
-                        <Badge className={getPriorityColor(parcel.priority)} style={{ fontSize: '10px' }}>
+                        <Badge
+                          className={getPriorityColor(parcel.priority)}
+                          style={{ fontSize: "10px" }}
+                        >
                           {parcel.priority}
                         </Badge>
-                        <p className="text-xs text-gray-500 mt-1">{parcel.weight}</p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {parcel.weight}
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -138,10 +202,13 @@ const LoadSwap = () => {
                   <Truck className="mr-2 h-5 w-5" />
                   {vanBData.id} - {vanBData.driver}
                 </CardTitle>
-                <Badge className="bg-green-100 text-green-800">{vanBData.status}</Badge>
+                <Badge className="bg-green-100 text-green-800">
+                  {vanBData.status}
+                </Badge>
               </div>
               <CardDescription>
-                Load: {vanBData.currentLoad}% of capacity • Status: {vanBData.estimatedDelay}
+                Load: {vanBData.currentLoad}% of capacity • Status:{" "}
+                {vanBData.estimatedDelay}
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -151,36 +218,51 @@ const LoadSwap = () => {
                   <span>{vanBData.currentLoad}%</span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-3">
-                  <div 
-                    className={`h-3 rounded-full ${getLoadColor(vanBData.currentLoad)}`}
+                  <div
+                    className={`h-3 rounded-full ${getLoadColor(
+                      vanBData.currentLoad
+                    )}`}
                     style={{ width: `${vanBData.currentLoad}%` }}
                   ></div>
                 </div>
               </div>
 
               <div className="space-y-2">
-                <h4 className="font-semibold text-sm">Parcels ({vanBData.parcels.length}):</h4>
+                <h4 className="font-semibold text-sm">
+                  Parcels ({vanBData.parcels.length}):
+                </h4>
                 {vanBData.parcels.map((parcel, index) => (
-                  <div key={index} className="p-2 bg-white rounded border border-gray-200">
+                  <div
+                    key={index}
+                    className="p-2 bg-white rounded border border-gray-200"
+                  >
                     <div className="flex justify-between items-center">
                       <div>
                         <span className="font-medium text-sm">{parcel.id}</span>
-                        <p className="text-xs text-gray-600">{parcel.destination}</p>
+                        <p className="text-xs text-gray-600">
+                          {parcel.destination}
+                        </p>
                       </div>
                       <div className="text-right">
-                        <Badge className={getPriorityColor(parcel.priority)} style={{ fontSize: '10px' }}>
+                        <Badge
+                          className={getPriorityColor(parcel.priority)}
+                          style={{ fontSize: "10px" }}
+                        >
                           {parcel.priority}
                         </Badge>
-                        <p className="text-xs text-gray-500 mt-1">{parcel.weight}</p>
+                        <p className="text-xs text-gray-500 mt-1">
+                          {parcel.weight}
+                        </p>
                       </div>
                     </div>
                   </div>
                 ))}
-                
+
                 {/* Available space indicator */}
                 <div className="p-2 bg-blue-50 rounded border border-blue-200 border-dashed">
                   <p className="text-sm text-blue-600 text-center">
-                    Available capacity: {vanBData.capacity - vanBData.currentLoad}%
+                    Available capacity:{" "}
+                    {vanBData.capacity - vanBData.currentLoad}%
                   </p>
                 </div>
               </div>
@@ -195,12 +277,16 @@ const LoadSwap = () => {
               <MapPin className="mr-2 h-5 w-5" />
               Smart Swap Recommendation
             </CardTitle>
-            <CardDescription>AI-optimized parcel redistribution strategy</CardDescription>
+            <CardDescription>
+              AI-optimized parcel redistribution strategy
+            </CardDescription>
           </CardHeader>
           <CardContent>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               <div className="text-center">
-                <div className="text-2xl font-bold text-blue-600 mb-2">3 Parcels</div>
+                <div className="text-2xl font-bold text-blue-600 mb-2">
+                  3 Parcels
+                </div>
                 <p className="text-sm text-gray-600">Recommended to swap</p>
                 <div className="mt-2">
                   {swapSuggestion.parcelsToSwap.map((id, index) => (
@@ -210,17 +296,25 @@ const LoadSwap = () => {
                   ))}
                 </div>
               </div>
-              
+
               <div className="text-center">
-                <div className="text-2xl font-bold text-purple-600 mb-2">{swapSuggestion.timeToSwap}</div>
+                <div className="text-2xl font-bold text-purple-600 mb-2">
+                  {swapSuggestion.timeToSwap}
+                </div>
                 <p className="text-sm text-gray-600">Swap duration</p>
-                <p className="text-xs text-gray-500 mt-1">at {swapSuggestion.swapPoint}</p>
+                <p className="text-xs text-gray-500 mt-1">
+                  at {swapSuggestion.swapPoint}
+                </p>
               </div>
-              
+
               <div className="text-center">
-                <div className="text-2xl font-bold text-green-600 mb-2">{swapSuggestion.slaImprovement}</div>
+                <div className="text-2xl font-bold text-green-600 mb-2">
+                  {swapSuggestion.slaImprovement}
+                </div>
                 <p className="text-sm text-gray-600">SLA improvement</p>
-                <p className="text-xs text-gray-500 mt-1">Fuel saved: {swapSuggestion.fuelSaved}</p>
+                <p className="text-xs text-gray-500 mt-1">
+                  Fuel saved: {swapSuggestion.fuelSaved}
+                </p>
               </div>
             </div>
 
@@ -244,12 +338,14 @@ const LoadSwap = () => {
               </div>
             </div>
 
-            <Button 
-              onClick={handleSwapExecution} 
+            <Button
+              onClick={handleSwapExecution}
               className="w-full mt-4 bg-[#0071ce] hover:bg-[#004c87]"
               disabled={swapExecuted}
             >
-              {swapExecuted ? 'Swap Executed Successfully!' : 'Execute Smart Swap'}
+              {swapExecuted
+                ? "Swap Executed Successfully!"
+                : "Execute Smart Swap"}
             </Button>
           </CardContent>
         </Card>
@@ -259,7 +355,9 @@ const LoadSwap = () => {
           <Card className="mb-8 bg-green-50 border-green-200">
             <CardHeader>
               <CardTitle className="text-green-800">Swap Results</CardTitle>
-              <CardDescription>Optimized load distribution achieved</CardDescription>
+              <CardDescription>
+                Optimized load distribution achieved
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -276,11 +374,13 @@ const LoadSwap = () => {
                     </div>
                     <div className="flex justify-between">
                       <span>Estimated Delay:</span>
-                      <span className="font-medium text-green-600">On time</span>
+                      <span className="font-medium text-green-600">
+                        On time
+                      </span>
                     </div>
                   </div>
                 </div>
-                
+
                 <div>
                   <h4 className="font-semibold mb-3">Van B - After Swap:</h4>
                   <div className="space-y-2">
@@ -294,14 +394,18 @@ const LoadSwap = () => {
                     </div>
                     <div className="flex justify-between">
                       <span>Efficiency:</span>
-                      <span className="font-medium text-blue-600">Optimized</span>
+                      <span className="font-medium text-blue-600">
+                        Optimized
+                      </span>
                     </div>
                   </div>
                 </div>
               </div>
-              
+
               <div className="mt-6 p-4 bg-white rounded-lg border">
-                <h4 className="font-semibold text-green-800 mb-2">Overall Benefits:</h4>
+                <h4 className="font-semibold text-green-800 mb-2">
+                  Overall Benefits:
+                </h4>
                 <ul className="space-y-1 text-sm text-green-700">
                   <li>✅ Balanced workload between drivers</li>
                   <li>✅ Reduced delivery delays by 45 minutes</li>
@@ -321,27 +425,47 @@ const LoadSwap = () => {
               <h3 className="text-xl font-semibold mb-4">How LoadSwap Works</h3>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-6 text-sm">
                 <div>
-                  <div className="text-indigo-600 font-semibold mb-2">📊 Monitor</div>
-                  <p>Real-time tracking of vehicle loads, routes, and delivery schedules</p>
+                  <div className="text-indigo-600 font-semibold mb-2">
+                    📊 Monitor
+                  </div>
+                  <p>
+                    Real-time tracking of vehicle loads, routes, and delivery
+                    schedules
+                  </p>
                 </div>
                 <div>
-                  <div className="text-cyan-600 font-semibold mb-2">🧠 Analyze</div>
-                  <p>AI identifies load imbalances and optimal redistribution opportunities</p>
+                  <div className="text-cyan-600 font-semibold mb-2">
+                    🧠 Analyze
+                  </div>
+                  <p>
+                    AI identifies load imbalances and optimal redistribution
+                    opportunities
+                  </p>
                 </div>
                 <div>
-                  <div className="text-blue-600 font-semibold mb-2">📍 Locate</div>
-                  <p>Finds convenient swap points that minimize detours and time loss</p>
+                  <div className="text-blue-600 font-semibold mb-2">
+                    📍 Locate
+                  </div>
+                  <p>
+                    Finds convenient swap points that minimize detours and time
+                    loss
+                  </p>
                 </div>
                 <div>
-                  <div className="text-green-600 font-semibold mb-2">🔄 Execute</div>
-                  <p>Coordinates parcel transfers for balanced loads and improved efficiency</p>
+                  <div className="text-green-600 font-semibold mb-2">
+                    🔄 Execute
+                  </div>
+                  <p>
+                    Coordinates parcel transfers for balanced loads and improved
+                    efficiency
+                  </p>
                 </div>
               </div>
             </div>
           </CardContent>
         </Card>
       </div>
-    </Layout>
+    </div>
   );
 };
 
