@@ -347,7 +347,6 @@ export default function LandingPage() {
                 <Button
                   variant="outline"
                   className="border-teal-200 text-teal-100 hover:bg-teal-200 hover:text-teal-800 bg-transparent"
-                  onClick={() => setIsDialogOpen(true)}
                 >
                   Login / Signup
                 </Button>
@@ -376,9 +375,9 @@ export default function LandingPage() {
             <Button
               size="lg"
               className="bg-white text-teal-800 hover:bg-teal-50 px-8 py-4 text-lg font-semibold"
-              onClick={() => setIsDialogOpen(true)}
             >
-              Login / Signup
+              Get Started
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
             <Button
               size="lg"
@@ -708,7 +707,7 @@ export default function LandingPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-teal-600 to-teal-700">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-teal-800 to-emerald-900 text-teal-100 py-12">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to transform Walmart's supply chain?
@@ -720,7 +719,6 @@ export default function LandingPage() {
           <Button
             size="lg"
             className="bg-white text-teal-800 hover:bg-teal-50 px-8 py-4 text-lg font-semibold"
-            onClick={() => setIsDialogOpen(true)}
           >
             Get Started
             <ArrowRight className="w-5 h-5 ml-2" />
@@ -741,9 +739,6 @@ export default function LandingPage() {
           </div>
         </div>
       </footer>
-
-      {/* Login/Signup Dialog */}
-      <LoginSignupDialog />
     </div>
   );
 }

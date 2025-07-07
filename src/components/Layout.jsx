@@ -25,7 +25,7 @@ const Layout = ({ children }) => {
                 <div className="w-8 h-8 bg-teal-200 rounded-full flex items-center justify-center">
                   <span className="text-teal-800 font-bold text-lg">W</span>
                 </div>
-                <span className="text-white font-bold text-xl">Supply Chain AI</span>
+                <span className="text-white font-bold text-xl pr-2">OptiChain</span>
               </Link>
             </div>
             <div className="hidden md:flex items-center space-x-8">
