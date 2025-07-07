@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -310,54 +308,46 @@ export default function LandingPage() {
       {/* Navbar */}
       <nav className="bg-slate-900/95 backdrop-blur-sm border-b border-teal-600/30 sticky top-0 z-50">
         <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center justify-center space-x-8 flex-1">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-teal-400 to-emerald-400 rounded-full flex items-center justify-center">
-                  <span className="text-slate-900 font-bold text-lg">W</span>
-                </div>
-                <span className="text-white font-semibold text-xl">
-                  OptiChain
-                </span>
+          <div className="flex items-center justify-between relative">
+            {/* Logo and Title (left) */}
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-r from-teal-400 to-emerald-400 rounded-full flex items-center justify-center">
+                <span className="text-slate-900 font-bold text-lg">W</span>
               </div>
-
-              <div className="hidden md:flex items-center space-x-8">
-                <a
-                  href="#home"
-                  className="text-teal-100 hover:text-white transition-colors"
-                >
-                  Home
-                </a>
-                <a
-                  href="#features"
-                  className="text-teal-100 hover:text-white transition-colors"
-                >
-                  Features
-                </a>
-                <a
-                  href="#about"
-                  className="text-teal-100 hover:text-white transition-colors"
-                >
-                  About
-                </a>
-                <a
-                  href="#contact"
-                  className="text-teal-100 hover:text-white transition-colors"
-                >
-                  Contact
-                </a>
-                <Button
-                  variant="outline"
-                  className="border-teal-200 text-teal-100 hover:bg-teal-200 hover:text-teal-800 bg-transparent"
-                  onClick={() => setIsDialogOpen(true)}
-                >
-                  Login / Signup
-                </Button>
-              </div>
+              <span className="text-white font-semibold text-xl">OptiChain</span>
+            </div>
+            {/* Centered Nav Links */}
+            <div className="hidden md:flex items-center space-x-10 absolute left-1/2 transform -translate-x-1/2">
+              <a
+                href="#home"
+                className="text-teal-100 hover:text-white transition-colors"
+              >
+                Home
+              </a>
+              <a
+                href="#features"
+                className="text-teal-100 hover:text-white transition-colors"
+              >
+                Features
+              </a>
+              <a
+                href="#about"
+                className="text-teal-100 hover:text-white transition-colors"
+              >
+                About
+              </a>
+              <a
+                href="#contact"
+                className="text-teal-100 hover:text-white transition-colors"
+              >
+                Contact
+              </a>
             </div>
           </div>
         </div>
       </nav>
+
+
 
       {/* Hero Section */}
       <section id="home" className="py-20 px-4">
@@ -365,8 +355,8 @@ export default function LandingPage() {
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Revolutionizing Walmart's Supply Chain with AI
           </h1>
-          <h2 className="text-2xl md:text-3xl text-teal-100 mb-8 font-medium">
-            Inventory. Delivery. Returns. Smarter than ever.
+          <h2 className="text-2xl md:text-2xl text-teal-100 mb-8 font-medium">
+            Inventory, Delivery, Returns, Smarter than ever.
           </h2>
           <p className="text-xl text-teal-50 mb-12 max-w-4xl mx-auto leading-relaxed">
             An intelligent dashboard built for Walmart Sparkathon 2025.
@@ -377,11 +367,14 @@ export default function LandingPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <Button
               size="lg"
-              className="bg-white text-teal-800 hover:bg-teal-50 px-8 py-4 text-lg font-semibold"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-teal-800 px-8 py-4 text-lg font-semibold bg-transparent"
               onClick={() => setIsDialogOpen(true)}
             >
-              Login / Signup
+              Get Started
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Button>
+
             <Button
               size="lg"
               variant="outline"
@@ -710,7 +703,7 @@ export default function LandingPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-r from-teal-600 to-teal-700">
+      <section className="py-20 bg-gradient-to-br from-slate-900 via-teal-800 to-emerald-900 text-teal-100">
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold text-white mb-6">
             Ready to transform Walmart's supply chain?
@@ -719,30 +712,8 @@ export default function LandingPage() {
             Get started by choosing your role and logging in. Experience the
             future of supply chain management today.
           </p>
-          <Button
-            size="lg"
-            className="bg-white text-teal-800 hover:bg-teal-50 px-8 py-4 text-lg font-semibold"
-            onClick={() => setIsDialogOpen(true)}
-          >
-            Get Started
-            <ArrowRight className="w-5 h-5 ml-2" />
-          </Button>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-gradient-to-br from-slate-900 via-teal-800 to-emerald-900 text-teal-100 py-12">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-start">
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 bg-gradient-to-r from-teal-400 to-emerald-400 rounded-full flex items-center justify-center">
-                <span className="text-slate-900 font-bold">W</span>
-              </div>
-              <span className="font-semibold text-xl">OptiChain</span>
-            </div>
-          </div>
-        </div>
-      </footer>
 
       {/* Login/Signup Dialog */}
       <LoginSignupDialog />
