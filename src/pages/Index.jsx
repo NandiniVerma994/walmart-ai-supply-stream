@@ -72,8 +72,8 @@ export default function LandingPage() {
           <h1 className="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
             Revolutionizing Walmart's Supply Chain with AI
           </h1>
-          <h2 className="text-2xl md:text-3xl text-teal-100 mb-8 font-medium">
-            Inventory. Delivery. Returns. Smarter than ever.
+          <h2 className="text-2xl md:text-2xl text-teal-100 mb-8 font-medium">
+            Inventory, Delivery, Returns Smarter than ever
           </h2>
           <p className="text-xl text-teal-50 mb-12 max-w-4xl mx-auto leading-relaxed">
             An intelligent dashboard built for Walmart Sparkathon 2025.
@@ -84,7 +84,8 @@ export default function LandingPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
             <Button
               size="lg"
-              className="bg-white text-teal-800 hover:bg-teal-200 px-8 py-4 text-lg font-semibold"
+              variant="outline"
+              className="border-white text-white hover:bg-white hover:text-teal-800 px-8 py-4 text-lg font-semibold bg-transparent"
             >
               Get Started
               <ArrowRight className="w-5 h-5 ml-2" />
